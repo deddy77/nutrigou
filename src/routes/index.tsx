@@ -418,35 +418,35 @@ export default function NutriPlan() {
                 return (
                   <div
                     key={r.repas}
-                    className="flex flex-col gap-1 rounded-2xl border border-border bg-input/40 p-3"
+                    className="flex flex-col gap-1.5 rounded-2xl border border-border bg-input/50 p-3.5"
                   >
                     <span
-                      className="inline-block h-3 w-3 rounded-full"
+                      className="inline-block h-2.5 w-2.5 rounded-full"
                       style={{ backgroundColor: r.color }}
                       aria-hidden="true"
                     />
                     <span className="text-sm font-semibold text-foreground">
                       {r.repas}
                     </span>
-                    <span className="text-lg font-bold text-primary">
-                      {kcalRepas} kcal
+                    <span className="text-xl font-bold tracking-tight text-primary">
+                      {kcalRepas} <span className="text-sm font-medium text-muted-foreground">kcal</span>
                     </span>
-                    <div className="mt-1 space-y-0.5 text-xs text-muted-foreground">
+                    <div className="mt-1 space-y-1 text-xs text-muted-foreground">
                       <div className="flex justify-between">
                         <span>Protéines</span>
-                        <span className="font-medium text-foreground">
+                        <span className="font-medium text-foreground/80">
                           {protRepas} g
                         </span>
                       </div>
                       <div className="flex justify-between">
                         <span>Glucides</span>
-                        <span className="font-medium text-foreground">
+                        <span className="font-medium text-foreground/80">
                           {glucRepas} g
                         </span>
                       </div>
                       <div className="flex justify-between">
                         <span>Lipides</span>
-                        <span className="font-medium text-foreground">
+                        <span className="font-medium text-foreground/80">
                           {lipRepas} g
                         </span>
                       </div>
