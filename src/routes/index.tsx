@@ -174,18 +174,18 @@ function MacroBar({
   color: string;
 }) {
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className="flex flex-col gap-2">
       <div className="flex items-baseline justify-between">
-        <span className="text-sm font-medium text-foreground">{label}</span>
+        <span className="text-sm font-semibold text-foreground">{label}</span>
         <span className="text-xs text-muted-foreground">
-          {Math.round(part * 100)}% · {kcal} kcal
+          {Math.round(part * 100)}% · <span className="font-medium text-foreground/70">{kcal}</span> kcal
         </span>
       </div>
-      <div className="flex items-baseline gap-2">
-        <span className="text-2xl font-bold text-primary">{grammes}</span>
-        <span className="text-sm text-muted-foreground">g</span>
+      <div className="flex items-baseline gap-1.5">
+        <span className="text-3xl font-bold tracking-tight text-primary">{grammes}</span>
+        <span className="text-sm font-medium text-muted-foreground">g</span>
       </div>
-      <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
+      <div className="h-2.5 w-full overflow-hidden rounded-full bg-muted">
         <div
           className="h-full rounded-full transition-all duration-500"
           style={{ width: `${Math.max(4, part * 100)}%`, backgroundColor: color }}
