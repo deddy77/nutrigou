@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { exporterResultatsPdf } from "@/lib/pdf";
 
 type Sexe = "homme" | "femme";
 type Activite = "sedentaire" | "leger" | "modere" | "actif" | "intense";
@@ -261,6 +262,42 @@ export default function NutriPlan() {
     },
   ];
 
+  const [pdfEnCours, setPdfEnCours] = useState(false);
+
+  const telechargerPdf = async () => {
+    setPdfEnCours(true);
+    try {
+      await exporterResultatsPdf({
+        sexe: sexe === "homme" ? "Homme" : "Femme",
+        age,
+        taille,
+        poids,
+        activite:
+          ACTIVITE_LABELS.find((a) => a.value === activite)?.label ?? activite,
+        objectif:
+          OBJECTIF_LABELS.find((o) => o.value === objectif)?.label ?? objectif,
+        bmr: resultat.bmr,
+        tdee: resultat.tdee,
+        calories: resultat.calories,
+        macros: macros.map((m) => ({
+          label: m.label,
+          grammes: m.grammes,
+          kcal: m.kcal,
+          part: m.part,
+        })),
+        repas: REPAS_REPARTITION.map((r) => ({
+          repas: r.repas,
+          kcal: Math.round(resultat.calories * r.part),
+          proteines: Math.round(resultat.proteines * r.part),
+          glucides: Math.round(resultat.glucides * r.part),
+          lipides: Math.round(resultat.lipides * r.part),
+        })),
+      });
+    } finally {
+      setPdfEnCours(false);
+    }
+  };
+
   return (
     <div className="min-h-screen px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       <div className="mx-auto max-w-3xl">
@@ -457,6 +494,23 @@ export default function NutriPlan() {
             </div>
           </div>
         </section>
+
+        {/* Export PDF */}
+        <div className="mb-8 flex justify-center">
+          <button
+            type="button"
+            onClick={telechargerPdf}
+            disabled={pdfEnCours}
+            className="inline-flex items-center gap-2.5 rounded-2xl border border-primary/50 bg-primary/15 px-6 py-3.5 text-base font-semibold text-primary transition-all hover:bg-primary/25 disabled:opacity-60 soft-shadow"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <path d="M7 10l5 5 5-5" />
+              <path d="M12 15V3" />
+            </svg>
+            {pdfEnCours ? "Préparation…" : "Enregistrer en PDF"}
+          </button>
+        </div>
 
         {/* Avertissement permanent */}
         <aside
