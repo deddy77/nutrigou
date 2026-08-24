@@ -281,8 +281,8 @@ export default function NutriPlan() {
         </header>
 
         {/* Formulaire */}
-        <section className="mb-6 rounded-3xl border border-border bg-card/80 p-5 backdrop-blur-sm sm:p-7">
-          <h2 className="mb-5 text-lg font-semibold text-foreground">
+        <section className="mb-8 rounded-3xl border border-border bg-card/70 p-6 backdrop-blur-sm soft-shadow sm:p-8">
+          <h2 className="mb-6 text-xl font-semibold tracking-tight text-foreground">
             Votre profil
           </h2>
 
