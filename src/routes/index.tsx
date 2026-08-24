@@ -305,7 +305,7 @@ export default function NutriPlan() {
           </div>
 
           {/* Champs numériques */}
-          <div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
             <NumberField
               label="Âge"
               value={age}
