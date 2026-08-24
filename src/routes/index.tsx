@@ -431,22 +431,22 @@ export default function NutriPlan() {
                     <span className="text-xl font-bold tracking-tight text-primary">
                       {kcalRepas} <span className="text-sm font-medium text-muted-foreground">kcal</span>
                     </span>
-                    <div className="mt-1 space-y-1 text-xs text-muted-foreground">
-                      <div className="flex justify-between">
+                    <div className="mt-1 space-y-1.5 text-xs text-muted-foreground">
+                      <div className="flex items-baseline justify-between">
                         <span>Protéines</span>
-                        <span className="font-medium text-foreground/80">
+                        <span className="text-sm font-bold text-foreground">
                           {protRepas} g
                         </span>
                       </div>
-                      <div className="flex justify-between">
+                      <div className="flex items-baseline justify-between">
                         <span>Glucides</span>
-                        <span className="font-medium text-foreground/80">
+                        <span className="text-sm font-bold text-foreground">
                           {glucRepas} g
                         </span>
                       </div>
-                      <div className="flex justify-between">
+                      <div className="flex items-baseline justify-between">
                         <span>Lipides</span>
-                        <span className="font-medium text-foreground/80">
+                        <span className="text-sm font-bold text-foreground">
                           {lipRepas} g
                         </span>
                       </div>
