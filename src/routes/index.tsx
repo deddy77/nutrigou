@@ -393,11 +393,11 @@ export default function NutriPlan() {
           </div>
 
           {/* Macros */}
-          <div className="rounded-3xl border border-border bg-card/80 p-5 backdrop-blur-sm sm:p-7">
-            <h2 className="mb-5 text-lg font-semibold text-foreground">
+          <div className="rounded-3xl border border-border bg-card/70 p-6 backdrop-blur-sm soft-shadow sm:p-8">
+            <h2 className="mb-6 text-xl font-semibold tracking-tight text-foreground">
               Répartition des macronutriments
             </h2>
-            <div className="space-y-5">
+            <div className="space-y-6">
               {macros.map((m) => (
                 <MacroBar key={m.label} {...m} />
               ))}
