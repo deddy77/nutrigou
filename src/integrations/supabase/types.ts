@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      calculs: {
+        Row: {
+          activite: string
+          age: number
+          bmr: number
+          calories: number
+          created_at: string
+          glucides: number
+          id: string
+          lipides: number
+          objectif: string
+          poids: number
+          proteines: number
+          sexe: string
+          taille: number
+          tdee: number
+          user_id: string
+        }
+        Insert: {
+          activite: string
+          age: number
+          bmr: number
+          calories: number
+          created_at?: string
+          glucides: number
+          id?: string
+          lipides: number
+          objectif: string
+          poids: number
+          proteines: number
+          sexe: string
+          taille: number
+          tdee: number
+          user_id: string
+        }
+        Update: {
+          activite?: string
+          age?: number
+          bmr?: number
+          calories?: number
+          created_at?: string
+          glucides?: number
+          id?: string
+          lipides?: number
+          objectif?: string
+          poids?: number
+          proteines?: number
+          sexe?: string
+          taille?: number
+          tdee?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
