@@ -152,7 +152,7 @@ function NumberField({
           onChange={(e) => onChange(e.target.valueAsNumber)}
           min={min}
           max={max}
-          className="w-full bg-transparent text-base font-semibold text-foreground outline-none placeholder:text-muted-foreground"
+          className="w-full bg-transparent text-base font-semibold text-foreground outline-none :text-muted-foreground"
         />
         <span className="text-sm text-muted-foreground">{unite}</span>
       </div>
