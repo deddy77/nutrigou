@@ -420,7 +420,11 @@ export default function NutriPlan() {
                     key={r.repas}
                     className="flex flex-col gap-1 rounded-2xl border border-border bg-input/40 p-3"
                   >
-                    <span className="text-xl">{r.icone}</span>
+                    <span
+                      className="inline-block h-3 w-3 rounded-full"
+                      style={{ backgroundColor: r.color }}
+                      aria-hidden="true"
+                    />
                     <span className="text-sm font-semibold text-foreground">
                       {r.repas}
                     </span>
