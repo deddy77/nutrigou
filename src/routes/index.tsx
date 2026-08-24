@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { exporterResultatsPdf } from "@/lib/pdf";
 
 type Sexe = "homme" | "femme";
 type Activite = "sedentaire" | "leger" | "modere" | "actif" | "intense";
@@ -260,6 +261,42 @@ export default function NutriPlan() {
       color: "oklch(0.66 0.15 40)",
     },
   ];
+
+  const [pdfEnCours, setPdfEnCours] = useState(false);
+
+  const telechargerPdf = async () => {
+    setPdfEnCours(true);
+    try {
+      await exporterResultatsPdf({
+        sexe: sexe === "homme" ? "Homme" : "Femme",
+        age,
+        taille,
+        poids,
+        activite:
+          ACTIVITE_LABELS.find((a) => a.value === activite)?.label ?? activite,
+        objectif:
+          OBJECTIF_LABELS.find((o) => o.value === objectif)?.label ?? objectif,
+        bmr: resultat.bmr,
+        tdee: resultat.tdee,
+        calories: resultat.calories,
+        macros: macros.map((m) => ({
+          label: m.label,
+          grammes: m.grammes,
+          kcal: m.kcal,
+          part: m.part,
+        })),
+        repas: REPAS_REPARTITION.map((r) => ({
+          repas: r.repas,
+          kcal: Math.round(resultat.calories * r.part),
+          proteines: Math.round(resultat.proteines * r.part),
+          glucides: Math.round(resultat.glucides * r.part),
+          lipides: Math.round(resultat.lipides * r.part),
+        })),
+      });
+    } finally {
+      setPdfEnCours(false);
+    }
+  };
 
   return (
     <div className="min-h-screen px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
