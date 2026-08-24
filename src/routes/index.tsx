@@ -333,8 +333,8 @@ export default function NutriPlan() {
           </div>
 
           {/* Activité */}
-          <div className="mb-5">
-            <span className="mb-2 block text-sm font-medium text-foreground">
+          <div className="mb-6">
+            <span className="mb-2.5 block text-sm font-medium text-foreground">
               Niveau d'activité physique
             </span>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
