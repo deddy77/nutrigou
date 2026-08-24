@@ -458,6 +458,23 @@ export default function NutriPlan() {
           </div>
         </section>
 
+        {/* Export PDF */}
+        <div className="mb-8 flex justify-center">
+          <button
+            type="button"
+            onClick={telechargerPdf}
+            disabled={pdfEnCours}
+            className="inline-flex items-center gap-2.5 rounded-2xl border border-primary/50 bg-primary/15 px-6 py-3.5 text-base font-semibold text-primary transition-all hover:bg-primary/25 disabled:opacity-60 soft-shadow"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <path d="M7 10l5 5 5-5" />
+              <path d="M12 15V3" />
+            </svg>
+            {pdfEnCours ? "Préparation…" : "Enregistrer en PDF"}
+          </button>
+        </div>
+
         {/* Avertissement permanent */}
         <aside
           role="note"
