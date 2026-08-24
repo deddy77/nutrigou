@@ -266,7 +266,7 @@ export default function NutriPlan() {
       <div className="mx-auto max-w-3xl">
         {/* Header */}
         <header className="mb-12 text-center">
-          <div className="mb-4 inline-flex h-18 w-18 items-center justify-center rounded-2xl bg-primary/15 text-primary glow-ring" style={{ width: "4.5rem", height: "4.5rem" }}>
+          <div className="mb-4 inline-flex items-center justify-center rounded-2xl bg-primary/15 text-primary glow-ring" style={{ width: "4.5rem", height: "4.5rem" }}>
             <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M11 20A7 7 0 0 1 4 13c0-5 5-9 16-9 0 11-4 16-9 16Z" />
               <path d="M4 20c4-5 7-8 12-11" />
