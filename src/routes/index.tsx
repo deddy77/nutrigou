@@ -428,7 +428,7 @@ export default function NutriPlan() {
                     <span className="text-sm font-semibold text-foreground">
                       {r.repas}
                     </span>
-                    <span className="text-xl font-bold tracking-tight text-primary">
+                    <span className="text-2xl font-bold tracking-tight text-primary">
                       {kcalRepas} <span className="text-sm font-medium text-muted-foreground">kcal</span>
                     </span>
                     <div className="mt-1 space-y-1.5 text-xs text-muted-foreground">
