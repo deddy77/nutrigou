@@ -108,10 +108,10 @@ function OptionCard({
       type="button"
       onClick={onClick}
       className={
-        "group relative flex flex-col items-start gap-0.5 rounded-xl border p-3 text-left transition-all duration-200 " +
+        "group relative flex flex-col items-start gap-1 rounded-2xl border p-3.5 text-left transition-all duration-200 " +
         (active
           ? "border-primary bg-primary/15 glow-ring"
-          : "border-border bg-card hover:border-primary/50 hover:bg-accent/40")
+          : "border-border bg-card/60 hover:border-primary/50 hover:bg-accent/40")
       }
     >
       <span
@@ -122,7 +122,7 @@ function OptionCard({
       >
         {label}
       </span>
-      <span className="text-xs text-muted-foreground">{desc}</span>
+      <span className="text-xs leading-relaxed text-muted-foreground">{desc}</span>
     </button>
   );
 }
