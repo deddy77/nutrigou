@@ -370,24 +370,24 @@ export default function NutriPlan() {
         </section>
 
         {/* Résultats */}
-        <section className="mb-6 space-y-6">
+        <section className="mb-8 space-y-7">
           {/* Calorie principale */}
-          <div className="rounded-3xl border border-primary/40 bg-gradient-to-br from-primary/15 via-card to-card p-6 glow-ring">
-            <div className="flex flex-col items-center gap-1 text-center">
-              <span className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
+          <div className="rounded-3xl border border-primary/40 bg-gradient-to-br from-primary/20 via-card to-card p-8 lift-shadow">
+            <div className="flex flex-col items-center gap-2 text-center">
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                 Besoins énergétiques quotidiens
               </span>
-              <div className="mt-1 flex items-baseline gap-2">
-                <span className="text-5xl font-bold text-primary sm:text-6xl">
+              <div className="mt-2 flex items-baseline gap-2.5">
+                <span className="text-6xl font-bold tracking-tight text-primary sm:text-7xl">
                   {resultat.calories}
                 </span>
-                <span className="text-xl font-semibold text-foreground">
+                <span className="text-2xl font-semibold text-foreground">
                   kcal
                 </span>
               </div>
-              <span className="mt-1 text-xs text-muted-foreground">
-                Métabolisme de base : {resultat.bmr} kcal · Dépense totale :{" "}
-                {resultat.tdee} kcal
+              <span className="mt-2 text-sm text-muted-foreground">
+                Métabolisme de base : <span className="font-medium text-foreground/80">{resultat.bmr}</span> kcal · Dépense totale :{" "}
+                <span className="font-medium text-foreground/80">{resultat.tdee}</span> kcal
               </span>
             </div>
           </div>
