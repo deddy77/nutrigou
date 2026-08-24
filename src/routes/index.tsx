@@ -461,11 +461,11 @@ export default function NutriPlan() {
         {/* Avertissement permanent */}
         <aside
           role="note"
-          className="rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4 sm:p-5"
+          className="rounded-3xl border border-yellow-500/30 bg-yellow-500/10 p-5 soft-shadow sm:p-6"
         >
-          <div className="flex gap-3">
+          <div className="flex gap-3.5">
             <span className="text-xl leading-none">⚠️</span>
-            <div className="space-y-1 text-sm text-foreground/90">
+            <div className="space-y-1.5 text-sm leading-relaxed text-foreground/90">
               <p className="font-semibold text-foreground">
                 Informations indicatives
               </p>
