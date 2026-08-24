@@ -152,7 +152,7 @@ function NumberField({
           onChange={(e) => onChange(e.target.valueAsNumber)}
           min={min}
           max={max}
-          className="w-full bg-transparent text-lg font-semibold tracking-tight text-foreground outline-none placeholder:text-muted-foreground"
+          className="w-full bg-transparent text-2xl font-bold tracking-tight text-foreground outline-none placeholder:text-muted-foreground"
         />
         <span className="text-sm font-medium text-muted-foreground">{unite}</span>
       </div>
@@ -265,14 +265,14 @@ export default function NutriPlan() {
     <div className="min-h-screen px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       <div className="mx-auto max-w-3xl">
         {/* Header */}
-        <header className="mb-10 text-center">
-          <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/15 text-primary glow-ring">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <header className="mb-12 text-center">
+          <div className="mb-4 inline-flex h-18 w-18 items-center justify-center rounded-2xl bg-primary/15 text-primary glow-ring" style={{ width: "4.5rem", height: "4.5rem" }}>
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M11 20A7 7 0 0 1 4 13c0-5 5-9 16-9 0 11-4 16-9 16Z" />
               <path d="M4 20c4-5 7-8 12-11" />
             </svg>
           </div>
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
             Nutri<span className="text-primary">Plan</span>
           </h1>
           <p className="mt-3 text-base text-muted-foreground">
@@ -281,7 +281,7 @@ export default function NutriPlan() {
         </header>
 
         {/* Formulaire */}
-        <section className="mb-8 rounded-3xl border border-border bg-card/70 p-6 backdrop-blur-sm soft-shadow sm:p-8">
+        <section className="mb-10 rounded-3xl border border-border bg-card/70 p-6 backdrop-blur-sm soft-shadow sm:p-8">
           <h2 className="mb-6 text-xl font-semibold tracking-tight text-foreground">
             Votre profil
           </h2>
@@ -370,7 +370,7 @@ export default function NutriPlan() {
         </section>
 
         {/* Résultats */}
-        <section className="mb-8 space-y-7">
+        <section className="mb-10 space-y-9">
           {/* Calorie principale */}
           <div className="rounded-3xl border border-primary/40 bg-gradient-to-br from-primary/20 via-card to-card p-8 lift-shadow">
             <div className="flex flex-col items-center gap-2 text-center">
@@ -386,8 +386,8 @@ export default function NutriPlan() {
                 </span>
               </div>
               <span className="mt-2 text-sm text-muted-foreground">
-                Métabolisme de base : <span className="font-medium text-foreground/80">{resultat.bmr}</span> kcal · Dépense totale :{" "}
-                <span className="font-medium text-foreground/80">{resultat.tdee}</span> kcal
+                Métabolisme de base : <span className="text-lg font-bold text-foreground">{resultat.bmr}</span> kcal · Dépense totale :{" "}
+                <span className="text-lg font-bold text-foreground">{resultat.tdee}</span> kcal
               </span>
             </div>
           </div>
