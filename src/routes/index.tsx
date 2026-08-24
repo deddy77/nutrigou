@@ -352,7 +352,7 @@ export default function NutriPlan() {
 
           {/* Objectif */}
           <div>
-            <span className="mb-2 block text-sm font-medium text-foreground">
+            <span className="mb-2.5 block text-sm font-medium text-foreground">
               Objectif
             </span>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
