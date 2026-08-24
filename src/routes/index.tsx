@@ -30,8 +30,8 @@ const OBJECTIF_LABELS: { value: Objectif; label: string; desc: string }[] = [
 const REPAS_REPARTITION = [
   { repas: "Petit-déjeuner", part: 0.25, icone: "☀️" },
   { repas: "Déjeuner", part: 0.35, icone: "🍽️" },
-  { repas: "Collation", part: 0.1, icone: "🍎" },
-  { repas: "Dîner", part: 0.3, icone: "🌙" },
+  { repas: "Collation", part: 0.1, icone: "☕" },
+  { repas: "Dîner", part: 0.3, icone: "🍲" },
 ];
 
 interface Resultat {
