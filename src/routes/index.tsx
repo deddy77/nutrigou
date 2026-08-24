@@ -108,10 +108,10 @@ function OptionCard({
       type="button"
       onClick={onClick}
       className={
-        "group relative flex flex-col items-start gap-0.5 rounded-xl border p-3 text-left transition-all duration-200 " +
+        "group relative flex flex-col items-start gap-1 rounded-2xl border p-3.5 text-left transition-all duration-200 " +
         (active
           ? "border-primary bg-primary/15 glow-ring"
-          : "border-border bg-card hover:border-primary/50 hover:bg-accent/40")
+          : "border-border bg-card/60 hover:border-primary/50 hover:bg-accent/40")
       }
     >
       <span
@@ -122,7 +122,7 @@ function OptionCard({
       >
         {label}
       </span>
-      <span className="text-xs text-muted-foreground">{desc}</span>
+      <span className="text-xs leading-relaxed text-muted-foreground">{desc}</span>
     </button>
   );
 }
@@ -145,16 +145,16 @@ function NumberField({
   return (
     <div className="flex flex-col gap-1.5">
       <label className="text-sm font-medium text-foreground">{label}</label>
-      <div className="flex items-center gap-2 rounded-xl border border-border bg-input px-3 py-2.5 focus-within:border-primary focus-within:glow-ring transition-all">
+      <div className="flex items-center gap-2 rounded-2xl border border-border bg-input px-3.5 py-3 focus-within:border-primary focus-within:glow-ring transition-all">
         <input
           type="number"
           value={Number.isNaN(value) ? "" : value}
           onChange={(e) => onChange(e.target.valueAsNumber)}
           min={min}
           max={max}
-          className="w-full bg-transparent text-base font-semibold text-foreground outline-none :text-muted-foreground"
+          className="w-full bg-transparent text-lg font-semibold tracking-tight text-foreground outline-none placeholder:text-muted-foreground"
         />
-        <span className="text-sm text-muted-foreground">{unite}</span>
+        <span className="text-sm font-medium text-muted-foreground">{unite}</span>
       </div>
     </div>
   );
@@ -174,18 +174,18 @@ function MacroBar({
   color: string;
 }) {
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className="flex flex-col gap-2">
       <div className="flex items-baseline justify-between">
-        <span className="text-sm font-medium text-foreground">{label}</span>
+        <span className="text-sm font-semibold text-foreground">{label}</span>
         <span className="text-xs text-muted-foreground">
-          {Math.round(part * 100)}% · {kcal} kcal
+          {Math.round(part * 100)}% · <span className="font-medium text-foreground/70">{kcal}</span> kcal
         </span>
       </div>
-      <div className="flex items-baseline gap-2">
-        <span className="text-2xl font-bold text-primary">{grammes}</span>
-        <span className="text-sm text-muted-foreground">g</span>
+      <div className="flex items-baseline gap-1.5">
+        <span className="text-3xl font-bold tracking-tight text-primary">{grammes}</span>
+        <span className="text-sm font-medium text-muted-foreground">g</span>
       </div>
-      <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
+      <div className="h-2.5 w-full overflow-hidden rounded-full bg-muted">
         <div
           className="h-full rounded-full transition-all duration-500"
           style={{ width: `${Math.max(4, part * 100)}%`, backgroundColor: color }}
@@ -262,33 +262,33 @@ export default function NutriPlan() {
   ];
 
   return (
-    <div className="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
+    <div className="min-h-screen px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       <div className="mx-auto max-w-3xl">
         {/* Header */}
-        <header className="mb-8 text-center">
-          <div className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/15 text-primary glow-ring">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <header className="mb-10 text-center">
+          <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/15 text-primary glow-ring">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M11 20A7 7 0 0 1 4 13c0-5 5-9 16-9 0 11-4 16-9 16Z" />
               <path d="M4 20c4-5 7-8 12-11" />
             </svg>
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
             Nutri<span className="text-primary">Plan</span>
           </h1>
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="mt-3 text-base text-muted-foreground">
             Calculez vos besoins nutritionnels quotidiens
           </p>
         </header>
 
         {/* Formulaire */}
-        <section className="mb-6 rounded-3xl border border-border bg-card/80 p-5 backdrop-blur-sm sm:p-7">
-          <h2 className="mb-5 text-lg font-semibold text-foreground">
+        <section className="mb-8 rounded-3xl border border-border bg-card/70 p-6 backdrop-blur-sm soft-shadow sm:p-8">
+          <h2 className="mb-6 text-xl font-semibold tracking-tight text-foreground">
             Votre profil
           </h2>
 
           {/* Sexe */}
-          <div className="mb-5">
-            <span className="mb-2 block text-sm font-medium text-foreground">
+          <div className="mb-6">
+            <span className="mb-2.5 block text-sm font-medium text-foreground">
               Sexe
             </span>
             <div className="grid grid-cols-2 gap-3">
@@ -305,7 +305,7 @@ export default function NutriPlan() {
           </div>
 
           {/* Champs numériques */}
-          <div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
             <NumberField
               label="Âge"
               value={age}
@@ -333,8 +333,8 @@ export default function NutriPlan() {
           </div>
 
           {/* Activité */}
-          <div className="mb-5">
-            <span className="mb-2 block text-sm font-medium text-foreground">
+          <div className="mb-6">
+            <span className="mb-2.5 block text-sm font-medium text-foreground">
               Niveau d'activité physique
             </span>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
@@ -352,7 +352,7 @@ export default function NutriPlan() {
 
           {/* Objectif */}
           <div>
-            <span className="mb-2 block text-sm font-medium text-foreground">
+            <span className="mb-2.5 block text-sm font-medium text-foreground">
               Objectif
             </span>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
@@ -370,34 +370,34 @@ export default function NutriPlan() {
         </section>
 
         {/* Résultats */}
-        <section className="mb-6 space-y-6">
+        <section className="mb-8 space-y-7">
           {/* Calorie principale */}
-          <div className="rounded-3xl border border-primary/40 bg-gradient-to-br from-primary/15 via-card to-card p-6 glow-ring">
-            <div className="flex flex-col items-center gap-1 text-center">
-              <span className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
+          <div className="rounded-3xl border border-primary/40 bg-gradient-to-br from-primary/20 via-card to-card p-8 lift-shadow">
+            <div className="flex flex-col items-center gap-2 text-center">
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                 Besoins énergétiques quotidiens
               </span>
-              <div className="mt-1 flex items-baseline gap-2">
-                <span className="text-5xl font-bold text-primary sm:text-6xl">
+              <div className="mt-2 flex items-baseline gap-2.5">
+                <span className="text-6xl font-bold tracking-tight text-primary sm:text-7xl">
                   {resultat.calories}
                 </span>
-                <span className="text-xl font-semibold text-foreground">
+                <span className="text-2xl font-semibold text-foreground">
                   kcal
                 </span>
               </div>
-              <span className="mt-1 text-xs text-muted-foreground">
-                Métabolisme de base : {resultat.bmr} kcal · Dépense totale :{" "}
-                {resultat.tdee} kcal
+              <span className="mt-2 text-sm text-muted-foreground">
+                Métabolisme de base : <span className="font-medium text-foreground/80">{resultat.bmr}</span> kcal · Dépense totale :{" "}
+                <span className="font-medium text-foreground/80">{resultat.tdee}</span> kcal
               </span>
             </div>
           </div>
 
           {/* Macros */}
-          <div className="rounded-3xl border border-border bg-card/80 p-5 backdrop-blur-sm sm:p-7">
-            <h2 className="mb-5 text-lg font-semibold text-foreground">
+          <div className="rounded-3xl border border-border bg-card/70 p-6 backdrop-blur-sm soft-shadow sm:p-8">
+            <h2 className="mb-6 text-xl font-semibold tracking-tight text-foreground">
               Répartition des macronutriments
             </h2>
-            <div className="space-y-5">
+            <div className="space-y-6">
               {macros.map((m) => (
                 <MacroBar key={m.label} {...m} />
               ))}
@@ -405,8 +405,8 @@ export default function NutriPlan() {
           </div>
 
           {/* Répartition des repas */}
-          <div className="rounded-3xl border border-border bg-card/80 p-5 backdrop-blur-sm sm:p-7">
-            <h2 className="mb-5 text-lg font-semibold text-foreground">
+          <div className="rounded-3xl border border-border bg-card/70 p-6 backdrop-blur-sm soft-shadow sm:p-8">
+            <h2 className="mb-6 text-xl font-semibold tracking-tight text-foreground">
               Répartition indicative sur la journée
             </h2>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -418,35 +418,35 @@ export default function NutriPlan() {
                 return (
                   <div
                     key={r.repas}
-                    className="flex flex-col gap-1 rounded-2xl border border-border bg-input/40 p-3"
+                    className="flex flex-col gap-1.5 rounded-2xl border border-border bg-input/50 p-3.5"
                   >
                     <span
-                      className="inline-block h-3 w-3 rounded-full"
+                      className="inline-block h-2.5 w-2.5 rounded-full"
                       style={{ backgroundColor: r.color }}
                       aria-hidden="true"
                     />
                     <span className="text-sm font-semibold text-foreground">
                       {r.repas}
                     </span>
-                    <span className="text-lg font-bold text-primary">
-                      {kcalRepas} kcal
+                    <span className="text-xl font-bold tracking-tight text-primary">
+                      {kcalRepas} <span className="text-sm font-medium text-muted-foreground">kcal</span>
                     </span>
-                    <div className="mt-1 space-y-0.5 text-xs text-muted-foreground">
+                    <div className="mt-1 space-y-1 text-xs text-muted-foreground">
                       <div className="flex justify-between">
                         <span>Protéines</span>
-                        <span className="font-medium text-foreground">
+                        <span className="font-medium text-foreground/80">
                           {protRepas} g
                         </span>
                       </div>
                       <div className="flex justify-between">
                         <span>Glucides</span>
-                        <span className="font-medium text-foreground">
+                        <span className="font-medium text-foreground/80">
                           {glucRepas} g
                         </span>
                       </div>
                       <div className="flex justify-between">
                         <span>Lipides</span>
-                        <span className="font-medium text-foreground">
+                        <span className="font-medium text-foreground/80">
                           {lipRepas} g
                         </span>
                       </div>
@@ -461,11 +461,11 @@ export default function NutriPlan() {
         {/* Avertissement permanent */}
         <aside
           role="note"
-          className="rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4 sm:p-5"
+          className="rounded-3xl border border-yellow-500/30 bg-yellow-500/10 p-5 soft-shadow sm:p-6"
         >
-          <div className="flex gap-3">
+          <div className="flex gap-3.5">
             <span className="text-xl leading-none">⚠️</span>
-            <div className="space-y-1 text-sm text-foreground/90">
+            <div className="space-y-1.5 text-sm leading-relaxed text-foreground/90">
               <p className="font-semibold text-foreground">
                 Informations indicatives
               </p>
@@ -485,8 +485,8 @@ export default function NutriPlan() {
           </div>
         </aside>
 
-        <footer className="mt-8 text-center text-xs text-muted-foreground">
-          <p>
+        <footer className="mt-10 text-center text-xs text-muted-foreground">
+          <p className="leading-relaxed">
             Calcul basé sur l'équation de Mifflin-St Jeor · NutriPlan ne collecte
             aucune donnée
           </p>
