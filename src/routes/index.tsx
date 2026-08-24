@@ -287,8 +287,8 @@ export default function NutriPlan() {
           </h2>
 
           {/* Sexe */}
-          <div className="mb-5">
-            <span className="mb-2 block text-sm font-medium text-foreground">
+          <div className="mb-6">
+            <span className="mb-2.5 block text-sm font-medium text-foreground">
               Sexe
             </span>
             <div className="grid grid-cols-2 gap-3">
