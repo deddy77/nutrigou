@@ -485,8 +485,8 @@ export default function NutriPlan() {
           </div>
         </aside>
 
-        <footer className="mt-8 text-center text-xs text-muted-foreground">
-          <p>
+        <footer className="mt-10 text-center text-xs text-muted-foreground">
+          <p className="leading-relaxed">
             Calcul basé sur l'équation de Mifflin-St Jeor · NutriPlan ne collecte
             aucune donnée
           </p>
