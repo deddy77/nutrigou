@@ -405,8 +405,8 @@ export default function NutriPlan() {
           </div>
 
           {/* Répartition des repas */}
-          <div className="rounded-3xl border border-border bg-card/80 p-5 backdrop-blur-sm sm:p-7">
-            <h2 className="mb-5 text-lg font-semibold text-foreground">
+          <div className="rounded-3xl border border-border bg-card/70 p-6 backdrop-blur-sm soft-shadow sm:p-8">
+            <h2 className="mb-6 text-xl font-semibold tracking-tight text-foreground">
               Répartition indicative sur la journée
             </h2>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
